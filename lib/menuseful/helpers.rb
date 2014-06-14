@@ -1,3 +1,5 @@
+require 'action_view'
+
 module Menuseful
   module Helpers
     extend ActiveSupport::Concern
