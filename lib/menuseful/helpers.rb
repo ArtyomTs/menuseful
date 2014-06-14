@@ -12,7 +12,6 @@ module Menuseful
 
     def link_to_menu_if condition, text, url, options={}, &block
       classes = condition ? 'active' : ''
-      text = translate_views('menu', scope: text) if text.is_a?(Symbol)
       if options.delete(:wrapper) == :none
         wrapper = -> { content }
       else
