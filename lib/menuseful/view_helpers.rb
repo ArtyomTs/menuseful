@@ -9,11 +9,13 @@ module Menuseful
 
       def link_to_menu_if condition, text, url, options={}, &block
         classes = condition ? 'active' : ''
+        prefix = options.delete(:prefix)
         if options.delete(:wrapper) == :none
           wrapper = -> { content }
         else
           wrapper = -> do
             link_to url, options.merge(title: text) do
+              concat prefix
               concat content_tag(:span, text)
             end
           end
