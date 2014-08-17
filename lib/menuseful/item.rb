@@ -24,12 +24,12 @@ module Menuseful
       attr_accessor :trail
 
       def initialize(*args)
-        self.trail = args.flatten.map(&:to_s)
+        self.trail = args.flatten
       end
 
       def is?(*pattern_trail)
         raise ArgumentError, "Can't compare without any arguments." unless pattern_trail.present?
-        trail.take(pattern_trail.length) == pattern_trail.map(&:to_s)
+        trail.take(pattern_trail.length) == pattern_trail
       end
       alias_method :sub?, :is?
 
