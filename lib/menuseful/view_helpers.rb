@@ -13,6 +13,7 @@ module Menuseful
         if options.delete(:wrapper) == :none
           wrapper = -> { content }
         else
+          options[:class] = (options[:class].to_s.split(' ') << classes).join(' ')
           wrapper = -> do
             link_to url, options.merge(title: text) do
               concat prefix
